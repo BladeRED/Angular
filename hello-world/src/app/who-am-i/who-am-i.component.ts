@@ -18,6 +18,13 @@ export class WhoAmIComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    setTimeout(() => {
+
+      this.firstName = "Robert";
+      this.lastName = "Dubonvin";
+
+    }, 2000);
   }
 
 }
