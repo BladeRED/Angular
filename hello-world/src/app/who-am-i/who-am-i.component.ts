@@ -1,4 +1,4 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component,Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-who-am-i',
@@ -10,6 +10,8 @@ export class WhoAmIComponent implements OnInit {
   @Input()firstName: string;
   @Input()lastName: string;
 
+  @Output() onClickedShowAge: EventEmitter<void>;
+
   isDisabled: boolean;
   isChecked: boolean;
 
@@ -19,6 +21,7 @@ export class WhoAmIComponent implements OnInit {
     this.lastName = "RAYNAUD";
     this.isDisabled = false;
     this.isChecked = false;
+    this.onClickedShowAge = new EventEmitter<void>()
   }
 
   ngOnInit(): void {
@@ -40,9 +43,9 @@ export class WhoAmIComponent implements OnInit {
     }, 4000);
   }
 
-  onClickShowAge(age: number): void {
+  onClickShowAge(): void {
 
-    alert(age);
+    this.onClickedShowAge.emit();
 
   }
 
