@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-who-am-i',
@@ -7,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhoAmIComponent implements OnInit {
 
-  firstName: string;
-  lastName: string;
+  @Input()firstName: string;
+  @Input()lastName: string;
+
+  isDisabled: boolean;
+  isChecked: boolean;
 
   constructor() {
 
     this.firstName = "Julien";
     this.lastName = "RAYNAUD";
-
+    this.isDisabled = false;
+    this.isChecked = false;
   }
 
   ngOnInit(): void {
@@ -23,8 +27,23 @@ export class WhoAmIComponent implements OnInit {
 
       this.firstName = "Robert";
       this.lastName = "Dubonvin";
-
+      this.isDisabled = true;
+      this.isChecked = true;
     }, 2000);
+
+    setTimeout(() => {
+
+      this.firstName = "Julien";
+      this.lastName = "RAYNAUD";
+      this.isDisabled = false;
+      this.isChecked = false;
+    }, 4000);
+  }
+
+  onClickShowAge(age: number): void {
+
+    alert(age);
+
   }
 
 }

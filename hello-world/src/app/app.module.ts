@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WhoAmIComponent } from './who-am-i/who-am-i.component';
+import { TempoComponent } from './tempo/tempo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WhoAmIComponent
+    WhoAmIComponent,
+    TempoComponent
   ],
   imports: [
     BrowserModule,

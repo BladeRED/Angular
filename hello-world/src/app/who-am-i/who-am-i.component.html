@@ -1,1 +1,9 @@
-<div> La pression, je la bois ! Je suis {{firstName}} {{lastName}} !</div>
+<div> La pression, je la bois ! Je suis {{firstName}} {{lastName}} !
+
+
+  <button (click)="onClickShowAge(45)"[disabled]="isDisabled">Afficher mon âge</button>
+
+  <label>Afficher la date d'anniversaire hihi:
+    <input type ="checkbox" [checked]="isChecked">
+  </label>
+</div>
