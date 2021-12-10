@@ -7,7 +7,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableauComponent implements OnInit {
 
-  constructor() { }
+  users: Array<any>;
+
+  constructor() {
+
+    this.users = [];
+    this.users.push(
+      { ID: '1',
+        userName: 'John Doe',
+        Mail: 'john@doe.com'
+
+      }
+    )
+
+    this.users.push(
+      { ID: '2',
+        userName: 'Jean Dot',
+        Mail: 'jean@dot.com'
+
+      }
+    )
+
+    this.users.push(
+      { ID: '3',
+        userName: '¨Pierre Doe',
+        Mail: 'pierre@doe.com'
+
+      }
+    )
+   }
 
   ngOnInit(): void {
   }

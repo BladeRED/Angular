@@ -11,6 +11,8 @@ export class AppComponent {
   sousTitreToInput : string;
   texteToInput : string;
   lienToInput : string;
+  compteurToInput: number;
+  firstName : string;
 
   constructor(){
 
@@ -18,6 +20,26 @@ export class AppComponent {
     this.sousTitreToInput = "Dans la Vallée des Prout";
     this.texteToInput = "Il était une fois un petit chat sans poil qui s'appelait Poulet..."
     this.lienToInput ="grosseArnaque.com"
+    this.compteurToInput= 3;
+    this.firstName = "Julien Raynaud"
+
+  }
+
+  augmenteCompteur(){
+
+    this.compteurToInput++;
+
+  }
+
+  diminueCompteur(){
+
+    this.compteurToInput--;
+
+  }
+
+  changeNom(){
+
+    this.firstName = "Martin Dupont";
 
   }
 }

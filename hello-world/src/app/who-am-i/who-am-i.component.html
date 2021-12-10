@@ -1,9 +1,14 @@
-<div> La pression, je la bois ! Je suis {{firstName}} {{lastName}} !
+<div *ngIf="firstName !== 'Julien'">
+  La pression, je la bois ! Je suis {{ firstName }} {{ lastName }} !
 
+  <button (click)="onClickShowAge()" [disabled]="isDisabled">
+    Afficher mon âge
+  </button>
 
-  <button (click)="onClickShowAge()"[disabled]="isDisabled">Afficher mon âge</button>
-
-  <label>Afficher la date d'anniversaire hihi:
-    <input type ="checkbox" [checked]="isChecked">
+  <label
+    >Afficher la date d'anniversaire hihi:
+    <input type="checkbox" [checked]="isChecked" />
   </label>
 </div>
+
+<div *ngIf="firstName === 'Julien'">Prout !</div>

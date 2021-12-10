@@ -1,9 +1,25 @@
 
 <router-outlet></router-outlet>
+<h1> Exercice 1 </h1>
 <app-card
 [titre]="titreToInput"
 [sousTitre]="sousTitreToInput"
 [texte]="texteToInput"
 [lien]="lienToInput"></app-card>
-
+<h1> Exercice 2 </h1>
 <app-tableau></app-tableau>
+<h1> Exercice 3 </h1>
+<app-bouton
+(ClickedButton)="augmenteCompteur()"
+labelButton="Augmente, compteur !"></app-bouton>
+
+<app-bouton
+(ClickedButton)="diminueCompteur()"
+labelButton="Diminue, compteur !"></app-bouton>
+<p>{{compteurToInput}}</p>
+<app-bouton
+(ClickedButton)="changeNom()"
+labelButton="Change de nom !"></app-bouton>
+<p>{{firstName}}</p>
+<h1> Exercice 4 </h1>
+<app-animaux></app-animaux>

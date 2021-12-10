@@ -1,14 +1,13 @@
-import { Component,Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-who-am-i',
   templateUrl: './who-am-i.component.html',
-  styleUrls: ['./who-am-i.component.css']
+  styleUrls: ['./who-am-i.component.css'],
 })
 export class WhoAmIComponent implements OnInit {
-
-  @Input()firstName: string;
-  @Input()lastName: string;
+  @Input() firstName: string;
+  @Input() lastName: string;
 
   @Output() onClickedShowAge: EventEmitter<void>;
 
@@ -16,37 +15,30 @@ export class WhoAmIComponent implements OnInit {
   isChecked: boolean;
 
   constructor() {
-
-    this.firstName = "Julien";
-    this.lastName = "RAYNAUD";
+    this.firstName = 'Julien';
+    this.lastName = 'RAYNAUD';
     this.isDisabled = false;
     this.isChecked = false;
-    this.onClickedShowAge = new EventEmitter<void>()
+    this.onClickedShowAge = new EventEmitter<void>();
   }
 
   ngOnInit(): void {
-
     setTimeout(() => {
-
-      this.firstName = "Robert";
-      this.lastName = "Dubonvin";
+      this.firstName = 'Robert';
+      this.lastName = 'Dubonvin';
       this.isDisabled = true;
       this.isChecked = true;
-    }, 2000);
+    }, 10000);
 
     setTimeout(() => {
-
-      this.firstName = "Julien";
-      this.lastName = "RAYNAUD";
+      this.firstName = 'Julien';
+      this.lastName = 'RAYNAUD';
       this.isDisabled = false;
       this.isChecked = false;
-    }, 4000);
+    }, 20000);
   }
 
   onClickShowAge(): void {
-
     this.onClickedShowAge.emit();
-
   }
-
 }
