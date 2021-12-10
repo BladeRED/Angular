@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimauxComponent implements OnInit {
 
-  constructor() { }
+  animal: string;
+
+  constructor() {
+
+
+this.animal = "wafwaf";
+
+   }
 
   ngOnInit(): void {
+
+
   }
+
+  criAnimal(){
+
+    alert(this.animal);
+
+      }
 
 }
