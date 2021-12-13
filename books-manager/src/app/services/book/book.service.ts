@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Book } from '../../models/Book';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  books: any[];
+  books: Book[];
 
 
   constructor() {
 
     this.books = [];
 
-    const book = {
+      for (let i = 0; i < 11; i++){
 
-      id: '1',
-      title: 'toto',
-      description:'tata',
-      author:'titi'
-    }
+        this.books.push(new Book(i, 'Titre' + i, 'Description' + i, 'Auteur' + i,true))
 
-
+      }
    }
 }
