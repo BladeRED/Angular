@@ -7,7 +7,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr app-exo1ligne>
+    <tr app-exo1ligne
+    *ngFor="let user of users, index as i"
+    [ngStyle]="{color: i % 2 === 0 ? 'blue' : 'green'}"
+    [id] = "user.id"
+    [username] ="user.username"
+    [mail] ="user.mail"
+    >
 
     </tr>
   </tbody>

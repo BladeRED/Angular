@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: '[app-exo1ligne]',
@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Exo1ligneComponent implements OnInit {
 
-  constructor() { }
+  @Input()id = "string";
+  @Input()username = "string";
+  @Input()mail = "string";
+
+  constructor() {
+
+    this.id = "1";
+    this.username ="Patrick";
+    this.mail="Patrick@gmail.com";
+
+
+   }
 
   ngOnInit(): void {
   }
