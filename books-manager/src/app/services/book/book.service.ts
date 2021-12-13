@@ -19,4 +19,29 @@ export class BookService {
 
       }
    }
+
+   updateStatusForBookId(bookId: number): Promise<Book> {
+    return new Promise<Book>((res, rej) => {
+
+     for(let[index, book] of this.books.entries()){
+
+      if(book.id === bookId){
+
+        this.books[index].available = !this.books[index].available;
+        res(this.books[index]);
+        break;
+      }
+     }
+
+    })
+  }
+
+   updateAllStatus(newStatus: boolean): Promise<Book[]> {
+     return new Promise<Book[]>((res, rej) => {
+
+      this.books.forEach(book => book.available = newStatus);
+      res(this.books);
+
+     })
+   }
 }

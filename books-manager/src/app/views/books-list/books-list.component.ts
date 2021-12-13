@@ -15,4 +15,21 @@ export class BooksListComponent implements OnInit {
   ngOnInit(): void {
     this.books = this.bookService.books;
   }
+
+  onClickUpdateStatus(arrayIndex: number): void {
+
+    this.bookService
+    .updateStatusForBookId(this.books[arrayIndex].id)
+    .then((book: Book) => {this.books[arrayIndex] = book;});
+  }
+/**Method used */
+  onClickUpdateAllStatus(newStatus: boolean){
+
+    this.bookService.updateAllStatus(newStatus)
+    .then((books: Book[]) => {
+
+      //promesse tenue
+      this.books = books;
+    })
+  }
 }
