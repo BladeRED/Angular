@@ -20,6 +20,29 @@ export class BookService {
       }
    }
 
+   getBookById(bookId: number): Promise<Book>
+
+   {
+    return new Promise<Book>((res, rej) =>
+
+    {
+
+      for(let book of this.books)
+
+      {
+
+       if(book.id === bookId)
+       {
+
+        res(book);
+        break;
+
+       }
+      }
+     })
+    }
+
+
    updateStatusForBookId(bookId: number): Promise<Book> {
     return new Promise<Book>((res, rej) => {
 

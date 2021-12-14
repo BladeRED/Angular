@@ -1,33 +1,40 @@
-<div class="container mt-5">
-  <h1 class="text-center my-4">Books Manager</h1>
-
-  <div class = "d-flex justify-content-center my-4">
-
-    <button
-    (click)="onClickUpdateAllStatus(true)" class="btn btn-outline-dark mx-2">TOUS DISPO.</button>
-    <button
-    (click)="onClickUpdateAllStatus(false)" class="btn btn-outline-dark mx-2">PAS TOUS DISPO.</button>
-
-
-  </div>
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of books; index as i">
-        <th scope="row">{{ book.id }}</th>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.available ? "Dispo" : "Pas Dispo" }}</td>
-        <td><button
-          (click)="onClickUpdateStatus(i)" class="btn btn-outline-dark">Switch en {{book.available ? 'Pas Dispo' : 'Dispo' }}</button></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="d-flex justify-content-center my-4">
+  <button
+    (click)="onClickUpdateAllStatus(true)"
+    class="btn btn-outline-dark mx-2"
+  >
+    TOUS DISPO.
+  </button>
+  <button
+    (click)="onClickUpdateAllStatus(false)"
+    class="btn btn-outline-dark mx-2"
+  >
+    PAS TOUS DISPO.
+  </button>
 </div>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books; index as i">
+      <th scope="row">{{ book.id }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.available ? "Dispo" : "Pas Dispo" }}</td>
+      <td>
+        <button (click)="onClickUpdateStatus(i)" class="btn btn-outline-dark mx-2">
+          Switch en {{ book.available ? "Pas Dispo" : "Dispo" }}
+        </button>
+        <button [routerLink]="['/books', book.id]" class="btn btn-outline-primary mx-2">
+          DETAILS
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
