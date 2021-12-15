@@ -11,20 +11,15 @@ export class CardComponent implements OnInit {
 
   cars!: Car[];
 
-  image: string;
-  brand: string;
-  model: string;
-  isRented: boolean;
   constructor(private carService: CarService) {
 
-    this.image ="";
-    this.brand ="";
-    this.model ="";
-    this.isRented = true;
+
 
    }
 
   ngOnInit(): void {
+
+    this.cars = this.carService.cars;
   }
 
 }
