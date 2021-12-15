@@ -10,6 +10,7 @@ import { ErrorComponent } from './views/error/error.component';
 import { SingleBookComponent } from './views/single-book/single-book.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthService } from './services/auth/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthService } from './services/auth/auth.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [AuthService,BookService],
   bootstrap: [AppComponent]

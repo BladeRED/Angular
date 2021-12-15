@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
@@ -9,6 +10,9 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class AuthComponent implements OnInit {
 
+  email!:string;
+  password!:string;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -16,11 +20,14 @@ export class AuthComponent implements OnInit {
 
   onSubmitAuthForm(): void {
 
-    this.authService.signin('juleray@msn.com', 'azerty')
-    .then(() => {
 
-      this.router.navigateByUrl('/books')
-    })
+    console.log(this.email);
+    console.log(this.password);
+    //this.authService.signin('juleray@msn.com', 'azerty')
+   // .then(() => {
+
+  //    this.router.navigateByUrl('/books')
+ //   })
     //redirect to books view
   };
 }
