@@ -12,23 +12,27 @@ export class AuthComponent implements OnInit {
 
   email!:string;
   password!:string;
+  errMsg!:string;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.email = 'juleray@msn.com'
+    this.password = 'cacaprout'
   }
 
   onSubmitAuthForm(): void {
+    this.errMsg ='';
 
-
-    console.log(this.email);
-    console.log(this.password);
-    //this.authService.signin('juleray@msn.com', 'azerty')
-   // .then(() => {
-
-  //    this.router.navigateByUrl('/books')
- //   })
-    //redirect to books view
-  };
+    this.authService.signin(this.email, this.password)
+    .then(() => {
+      //redirect to books view
+      this.router.navigateByUrl('/books')
+    })
+    .catch((errMsg) => {//reject})
+      this.errMsg = errMsg;
+  })
+};
 }
 

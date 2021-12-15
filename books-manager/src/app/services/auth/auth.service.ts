@@ -19,7 +19,7 @@ this.token = new BehaviorSubject<string>('')
       if (email === 'juleray@msn.com' && password === 'azerty') {
         this.token.next('wingardiumleviosa');
         resolve()
-      }
+      }else{reject('Das ist nicht der password, Krakavar !!!')}
     });
   }
 
