@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Car } from 'src/app/models/Car';
+import { CarService } from '../services/car/car.service';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  cars!: Car[];
+
+  image: string;
+  brand: string;
+  model: string;
+  isRented: boolean;
+  constructor(private carService: CarService) {
+
+    this.image ="";
+    this.brand ="";
+    this.model ="";
+    this.isRented = true;
+
+   }
 
   ngOnInit(): void {
   }

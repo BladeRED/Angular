@@ -7,6 +7,7 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { RowItemComponent } from './row-item/row-item.component';
 import { ColItemComponent } from './col-item/col-item.component';
 import { CardComponent } from './card/card.component';
+import { CarService } from './services/car/car.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
