@@ -15,6 +15,28 @@ export class ProductService {
     }
   }
 
+  getProductById(productId: number): Promise<Product>
+
+   {
+    return new Promise<Product>((res, rej) =>
+
+    {
+
+      for(let product of this.products)
+
+      {
+
+       if(product.id === productId)
+       {
+
+        res(product);
+        break;
+
+       }
+      }
+     })
+    }
+
   changeDispoById(productId: number): Promise<Product> {
     return new Promise<Product>((resolve, reject) => {
       for (let [index, product] of this.products.entries()) {

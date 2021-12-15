@@ -1,11 +1,8 @@
-<div class ="container mt-5 justify-content-center">
-  <h1 class = "text-center mx-5"> Product Manager of Lidl the "Market F*cker" </h1>
+<div class="d-flex mx-5 justify-content-center">
+  <button (click)="UpdateAllDispo(true)" class="btn btn-outline-dark mx-5 mt-4"> TOUS DISPO.</button>
+  <button (click)="UpdateAllDispo(false)" class="btn btn-outline-dark mx-5 mt-4"> RIEN DISPO.</button>
+</div>
 
-  <div class ="d-flex mx-5 justify-content-center">
-  <button (click)="UpdateAllDispo(true)" class ="btn btn-outline-dark mx-5 mt-4"> TOUS DISPO.</button>
-  <button (click)="UpdateAllDispo(false)" class ="btn btn-outline-dark mx-5 mt-4"> RIEN DISPO.</button>
-</div>
-</div>
 
 <table class="table">
   <thead>
@@ -17,11 +14,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-    *ngFor="let product of products; index as i">
+    <tr *ngFor="let product of products; index as i">
       <th scope="row">{{product.id}}</th>
       <td>{{product.name}}</td>
-      <td>{{product.status ? 'Quentin' : 'Pas Quentin'}} <button (click)="changeDispo(i)"class ="btn btn-outline-dark">Changer le Quentin</button></td>
+      <td>{{product.status ? 'Quentin' : 'Pas Quentin'}}
+
+        <button (click)="changeDispo(i)"
+          class="btn btn-outline-dark">Changer le Quentin
+        </button>
+
+
+        <button [routerLink]="['/products', product.id]" class="btn btn-outline-primary mx-2">
+          DETAILS
+        </button>
+      </td>
 
     </tr>
   </tbody>

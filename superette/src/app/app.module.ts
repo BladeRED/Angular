@@ -9,6 +9,7 @@ import { AuthComponent } from './views/auth/auth.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SingleProductComponent } from './views/single-product/single-product.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
+  providers: [AuthService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
