@@ -9,6 +9,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class AuthComponent implements OnInit {
 
+  email!:string;
+  password!:string;
+  errMsg!:string
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,8 +24,9 @@ export class AuthComponent implements OnInit {
 
     //on appelle la méthode du service
     this.authService
-    .signin('juleray@msn.com', 'azerty')
-    .then(() => {this.router.navigateByUrl('products')})
+    .signin(this.email, this.password)
+    .then(() => {this.router.navigateByUrl('/products')})
+    .catch((errMsg) => {this.errMsg = errMsg;})
 
   }
 
