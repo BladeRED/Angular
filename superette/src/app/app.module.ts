@@ -5,11 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './views/products-list/products-list.component';
 import { ProductService } from './services/product.service';
+import { AuthComponent } from './views/auth/auth.component';
+import { ErrorComponent } from './views/error/error.component';
+import { SingleProductComponent } from './views/single-product/single-product.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    AuthComponent,
+    ErrorComponent,
+    SingleProductComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
