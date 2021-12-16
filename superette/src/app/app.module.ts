@@ -11,6 +11,9 @@ import { SingleProductComponent } from './views/single-product/single-product.co
 import { HeaderComponent } from './components/header/header.component';
 import { AuthService } from './services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
+import { NewProductComponent } from './views/new-product/new-product.component';
+import { EditProductComponent } from './views/edit-product/edit-product.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { FormsModule } from '@angular/forms';
     AuthComponent,
     ErrorComponent,
     SingleProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    NewProductComponent,
+    EditProductComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,

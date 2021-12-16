@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitBookForm()">
+
+  <div class="form-group">
+    <label for="title">Nom du produit, youpi</label>
+    <input
+    id ="title"
+    class="form-control"
+    formControlName= "title"
+    [(ngModel)]="product.name">
+  </div>
+
+  <div class="form-check">
+    <label class ="form-check-label" for="available">Dispo du produit,youpi</label>
+    <input
+    type="checkbox"
+    id ="available"
+    class="form-check-input"
+    formControlName= "available"
+    [(ngModel)]="book.available">
+  </div>
+
+  <div class ="row col-4 mx-auto">
+
+
+    <button type="submit" class="btn btn-dark btn-lg"
+    [disabled]="form.invalid"
+    >{{buttonLabel}}</button>
+
+    </div>
+
+
+</form>
+

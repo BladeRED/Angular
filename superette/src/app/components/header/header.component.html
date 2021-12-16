@@ -1,11 +1,15 @@
-
 <div class="position-relative">
+  <h1 class="text-center my-4">Books Manager</h1>
+  <div *ngIf="isConnected" class="position-absolute top-0 end-0 mt-2">
+    <button
+      [routerLink]="['/products', 'new']"
+      class="btn btn-outline-success mx-2"
+    >
+      AJOUTER
+    </button>
 
-  <h1 class = "text-center mx-5"> Product Manager of Lidl the "Market F*cker" </h1>
-
-  <button *ngIf="isConnected" (click)="onClickSignOut()" class="btn btn-outline-dark position-absolute top-0 end-0 mt-2">
-
-    DECONNECTE, TOI!!!!
-
-  </button>
+    <button (click)="onClickSignOut()" class="btn btn-outline-dark mx-2">
+      DECONNECTE, TOI!!!!
+    </button>
+  </div>
 </div>

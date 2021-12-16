@@ -33,7 +33,7 @@ export class BookFormComponent implements OnInit {
   private initForm(): void {
     this.book = this.bookToEdit ? this.bookToEdit :new Book(0, '', '', '', false);
 
-    // Un formulaire st un groupe dans lequel on a des contrôles
+    // Un formulaire est un groupe dans lequel on a des contrôles
     //Un contrôle équivaut à un champ du formulaire
     this.form = this.fb.group({
       title: [
