@@ -4,7 +4,9 @@
 
     <h5 class="card-title">NOUVEAU LIVRE</h5>
 
-    <app-book-form></app-book-form>
+    <app-book-form
+    buttonLabel="Ajouter"
+    (formSubmitted)="onSubmitNewBook($event)"></app-book-form>
 
     <button routerLink="/books" class="btn btn-dark mt-2">RETOUR</button>
 

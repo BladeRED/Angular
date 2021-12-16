@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BookService } from 'src/app/services/book/book.service';
+import { Book } from '../../models/Book';
 
 @Component({
   selector: 'app-new-book',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewBookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  onSubmitNewBook(bookToAdd: Book): void {
+
+
+this.bookService.addBook(bookToAdd).then(() => {this.router.navigateByUrl('/books')})
+
+
+  }
+
 
 }

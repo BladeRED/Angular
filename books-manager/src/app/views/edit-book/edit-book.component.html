@@ -1,1 +1,16 @@
-<p>edit-book works!</p>
+<div *ngIf ="book"class="row col-6 card shadow mx-auto">
+
+  <div class="card-body text-center">
+
+    <h5 class="card-title">NOUVEAU LIVRE</h5>
+
+    <app-book-form
+    [bookToEdit]="book"
+    buttonLabel="EDITE, MA GUEULE"
+    (formSubmitted)="onSubmitEditedBook($event)"></app-book-form>
+
+    <button routerLink="/books" class="btn btn-dark mt-2">RETOUR</button>
+
+  </div>
+
+</div>
