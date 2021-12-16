@@ -32,4 +32,11 @@ export class BooksListComponent implements OnInit {
       this.books = books;
     })
   }
+
+  onClickDeleteBook(arrayIndex: number): void{
+    this.bookService.deleteBook(this.books[arrayIndex].id).then(() => {})
+
+
+
+  }
 }

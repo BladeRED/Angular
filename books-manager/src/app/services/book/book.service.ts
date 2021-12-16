@@ -39,6 +39,34 @@ export class BookService {
     });
   }
 
+  deleteBook(bookIdToDelete: number): Promise<void> {
+
+    return new Promise<void>((resolve, reject) => {
+
+      for (let [index, book] of this.books.entries()) {
+
+        if (book.id === bookIdToDelete) {
+
+          this.books.splice(index, 1);
+          resolve();
+          break;
+
+
+
+        }
+
+
+
+      }
+
+
+
+    })
+
+
+
+  }
+
   getBookById(bookId: number): Promise<Book> {
     return new Promise<Book>((res, rej) => {
       for (let book of this.books) {
