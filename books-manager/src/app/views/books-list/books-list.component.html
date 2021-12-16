@@ -28,16 +28,28 @@
       <td>{{ book.author }}</td>
       <td>{{ book.available ? "Dispo" : "Pas Dispo" }}</td>
       <td>
-        <button (click)="onClickUpdateStatus(i)" class="btn btn-outline-dark mx-2">
+        <button
+          (click)="onClickUpdateStatus(i)"
+          class="btn btn-outline-dark mx-2"
+        >
           Switch en {{ book.available ? "Pas Dispo" : "Dispo" }}
         </button>
-        <button [routerLink]="['/books', book.id]" class="btn btn-outline-primary mx-2">
+        <button
+          [routerLink]="['/books', book.id]"
+          class="btn btn-outline-primary mx-2"
+        >
           DETAILS
         </button>
-        <button [routerLink]="['/books','edit', book.id]" class="btn btn-outline-warning mx-2">
+        <button
+          [routerLink]="['/books', 'edit', book.id]"
+          class="btn btn-outline-warning mx-2"
+        >
           EDITER
         </button>
-        <button (click)="onClickDeleteBook(i)" class="btn btn-outline-warning mx-2">
+        <button
+          (click)="onClickDeleteBook(i)"
+          class="btn btn-outline-warning mx-2"
+        >
           MEURS!!!!!
         </button>
       </td>

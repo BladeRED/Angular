@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { Product } from '../../models/Product';
 
 @Component({
@@ -9,10 +8,9 @@ import { Product } from '../../models/Product';
   styleUrls: ['./product-form.component.css'],
 })
 export class ProductFormComponent implements OnInit {
-
-  @Output() formSubmitted : EventEmitter<Product>;
+  @Output() formSubmitted: EventEmitter<Product>;
   @Input() buttonLabel!: string;
-  @Input()productToEdit!: Product;
+  @Input() productToEdit!: Product;
 
   form!: FormGroup;
 
@@ -26,12 +24,14 @@ export class ProductFormComponent implements OnInit {
     this.initForm();
   }
 
-  onSubmitBookForm(): void {
+  onSubmitProductForm(): void {
     this.formSubmitted.emit(this.product);
   }
 
   private initForm(): void {
-    this.product = this.productToEdit ? this.productToEdit :new Product(0, '',false);
+    this.product = this.productToEdit
+      ? this.productToEdit
+      : new Product(0, '', false);
 
     // Un formulaire est un groupe dans lequel on a des contrôles
     //Un contrôle équivaut à un champ du formulaire
@@ -48,4 +48,3 @@ export class ProductFormComponent implements OnInit {
     });
   }
 }
-

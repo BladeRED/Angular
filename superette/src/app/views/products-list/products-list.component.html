@@ -27,6 +27,18 @@
         <button [routerLink]="['/products', product.id]" class="btn btn-outline-primary mx-2">
           DETAILS
         </button>
+        <button
+        [routerLink]="['/products', 'edit', product.id]"
+        class="btn btn-outline-warning mx-2"
+      >
+        EDITER
+      </button>
+      <button
+      (click)="onClickDeleteProduct(i)"
+      class="btn btn-outline-danger mx-2"
+    >
+     SUPPRIMER
+    </button>
       </td>
 
     </tr>

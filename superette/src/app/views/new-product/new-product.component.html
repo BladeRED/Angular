@@ -2,11 +2,13 @@
 
   <div class="card-body text-center">
 
-    <h5 class="card-title">NOUVEAU LIVRE</h5>
+    <h5 class="card-title">NOUVEAU PRODUIT</h5>
 
-    <app-product-form></app-product-form>
+    <app-product-form
+    buttonLabel="Ajouter"
+    (formSubmitted)="onSubmitNewProduct($event)"></app-product-form>
 
-    <button routerLink="/books" class="btn btn-dark mt-2">RETOUR</button>
+    <button routerLink="/products" class="btn btn-dark mt-2">RETOUR</button>
 
   </div>
 

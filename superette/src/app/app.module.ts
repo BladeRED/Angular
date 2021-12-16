@@ -10,7 +10,7 @@ import { ErrorComponent } from './views/error/error.component';
 import { SingleProductComponent } from './views/single-product/single-product.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthService } from './services/auth/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './views/new-product/new-product.component';
 import { EditProductComponent } from './views/edit-product/edit-product.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
@@ -30,7 +30,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,ProductService],
   bootstrap: [AppComponent]

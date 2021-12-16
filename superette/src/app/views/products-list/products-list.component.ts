@@ -35,4 +35,11 @@ export class ProductsListComponent implements OnInit {
     })
   }
 
+  onClickDeleteProduct(arrayIndex: number): void{
+    this.productService.deleteProduct(this.products[arrayIndex].id).then(() => {})
+
+
+
+  }
+
 }
