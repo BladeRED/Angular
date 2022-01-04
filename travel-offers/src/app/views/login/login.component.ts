@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   email!: string;
   password!: string;
+  errMsg!:string;
 
-  errMsg!: string;
 
   constructor(private authService: AuthService,
               private router: Router) { }
@@ -23,8 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitAuthForm(): void {
-    // Reset errMsg
-    this.errMsg = '';
+this.errMsg = '';
+
+    this.authService
+    .signIn(this.email, this.password)
+    .then(() => {this.router.navigateByUrl('offers')})
+    .catch(err => this.errMsg = err.error.errorMsg)
   }
 
 }

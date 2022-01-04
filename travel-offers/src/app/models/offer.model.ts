@@ -12,7 +12,7 @@ export class Offer {
   private _updatedAt: Date;
 
   constructor(
-    id: string = '',
+
     name: string,
     description: string,
     dateBegin: string | Date,
@@ -20,7 +20,8 @@ export class Offer {
     imgUrl: string,
     creatorId: string | User,
     createdAt: string | Date,
-    updatedAt: string | Date
+    updatedAt: string | Date,
+    id: string = '',
   ) {
     this._id = id;
     this._name = name;

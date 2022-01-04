@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { OffersDetailsComponent } from './views/offer-details/offers-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

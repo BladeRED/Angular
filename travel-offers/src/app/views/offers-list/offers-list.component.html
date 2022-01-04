@@ -1,1 +1,33 @@
-<p>offers-list works!</p>
+<div class="col-10 mx-auto">
+
+  <div class="d-flex justify-content-between mb-3">
+    <h2>NOS OFFRES</h2>
+    <a [routerLink]="['/offers', 'new']" class="btn btn-success btn-lg">NOUVEL OFFRE</a>
+  </div>
+
+  <h3 *ngIf="offers.length === 0" class="text-center my-5">Il n'y a pas encore d'offres !</h3>
+
+  <div *ngFor="let offer of offers" class="card mb-3 h-100">
+    <div class="row g-0">
+      <div class="col-md-4 mx-auto">
+        <img [src]="offer.imgUrl" style="width: 125%">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{offer.name}}</h5>
+          <p class="card-text">{{offer.description}}</p>
+          <p class="card-text">
+            <small class="text-muted">
+              Offre disponible du {{offer.dateBegin | date}} au {{offer.dateEnd | date}}
+            </small>
+          </p>
+        </div>
+        <div class="card-footer text-muted border-0 bg-white text-end">
+          Fait le {{offer.createdAt | date}} par {{getCreatorUsername(offer)}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
