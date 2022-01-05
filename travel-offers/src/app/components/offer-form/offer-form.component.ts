@@ -27,6 +27,14 @@ export class OfferFormComponent implements OnInit {
     this.initForm();
   }
 
+  onChangeDateBegin(dateBeginString: string) {
+    this.offer.dateBegin = new Date(Date.parse(dateBeginString));
+  }
+
+  onChangeDateEnd(dateEndString: string) {
+    this.offer.dateEnd = new Date(Date.parse(dateEndString));
+  }
+
   onSubmitOfferForm(): void {
     if (this.form.valid) {
       this.formSubmitted.emit(this.offer);
