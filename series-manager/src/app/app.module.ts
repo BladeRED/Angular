@@ -11,6 +11,7 @@ import { SerieEditComponent } from './views/serie-edit/serie-edit.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SerieFormComponent } from './components/serie-form/serie-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './components/header/header.component';
     SerieEditComponent,
     ErrorComponent,
     SerieFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,
