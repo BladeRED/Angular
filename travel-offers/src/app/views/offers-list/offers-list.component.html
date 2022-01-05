@@ -10,7 +10,7 @@
   <div *ngFor="let offer of offers" class="card mb-3 h-100">
     <div class="row g-0">
       <div class="col-md-4 mx-auto">
-        <img [src]="offer.imgUrl" style="width: 125%">
+        <img [src]="offer.imgUrl" style="width: 75%">
       </div>
       <div class="col-md-6">
         <div class="card-body">
@@ -26,8 +26,12 @@
           Fait le {{offer.createdAt | date}} par {{getCreatorUsername(offer)}}
         </div>
       </div>
+      <div class="col-md-2 align-self-center">
+        <a [routerLink]="['/offers', offer.id]" class="btn btn-dark btn-lg my-1">DETAILS</a>
+        <a [routerLink]="['/offers', 'edit', offer.id]" class="btn btn-warning btn-lg my-1">EDITER</a>
+        <button (click)="onClickDeleteOffer(offer.id)" class="btn btn-danger btn-lg my-1">SUPP.</button>
+      </div>
     </div>
   </div>
 
 </div>
-

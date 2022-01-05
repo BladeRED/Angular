@@ -10,17 +10,16 @@ import { AuthService } from '../auth/auth.service';
 })
 export class OfferService {
   baseUrl: string;
+  offer!: Offer;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.baseUrl = environment.apiUrl;
   }
 
   findAll(): Promise<Offer[] | undefined> {
-    const token = this.authService.token.getValue();
-    const headers = new HttpHeaders().append('Authorization', token);
 
     return this.http
-      .get<{offers: any[] }>(this.baseUrl + 'offers', {headers})
+      .get<{offers: any[] }>(this.baseUrl + 'offers')
       .pipe(
         map((data: {offers: any[] }) => {
 
@@ -42,4 +41,39 @@ export class OfferService {
       )
       .toPromise(); // Va renvoyer une erreur si il y en a une et les données typées au bon format dans l'autre cas
   }
+
+  findByID(idToSearch: string): Promise<Offer | undefined> {
+
+    return this.http
+    .get<{offer: any}>(this.baseUrl + '/offers/' + idToSearch)
+    .pipe( map((data: {offer: any}) => Offer.fromJSON(data.offer)))
+    .toPromise(); //
+
+
+  }
+
+  editOffer(editedOffer: Offer): Promise<void> {
+    return this.http
+    .post<void>(this.baseUrl + 'offers/edit' + editedOffer.id, editedOffer.toJSON())
+    .toPromise()
+  }
+
+  save(offerToAdd: Offer) {
+
+    return this.http
+    .post<void>(this.baseUrl + 'offers/', offerToAdd.toJSON())
+    .toPromise()
+
+
+  }
+
+  deleteByID(idToDelete: string): Promise<void> {
+
+    return this.http
+      .get<void>(this.baseUrl + '/offers/' + idToDelete)
+      .toPromise();
+
+
+  }
+
 }

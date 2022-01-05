@@ -1,1 +1,68 @@
-<p>offer-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmitOfferForm()">
+
+  <div class="form-group">
+    <label for="name">Titre de l'offre</label>
+    <input
+      id="name"
+      class="form-control"
+      formControlName="name"
+      [(ngModel)]="offer.name">
+
+    <app-errors-form [group]="form" controlName="name" controlLabel="Nom de l'offre"></app-errors-form>
+
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description de l'offre</label>
+    <textarea
+      id="description"
+      class="form-control"
+      formControlName="description"
+      [(ngModel)]="offer.description">
+    </textarea>
+
+    <app-errors-form [group]="form" controlName="description" controlLabel="Description de l'offre"></app-errors-form>
+  </div>
+
+  <div class="form-group">
+    <label for="imgUrl">Image de l'offre</label>
+    <input
+      id="imgUrl"
+      class="form-control"
+      formControlName="imgUrl"
+      [(ngModel)]="offer.imgUrl">
+
+    <app-errors-form [group]="form" controlName="imgUrl" controlLabel="Image de l'offre"></app-errors-form>
+  </div>
+
+  <div class="form-group">
+    <label for="dateBegin">Date de début de l'offre</label>
+    <input
+      id="dateBegin"
+      type="date"
+      class="form-control"
+      formControlName="dateBegin"
+      [(ngModel)]="offer.dateBegin">
+  </div>
+
+  <div class="form-group">
+    <label for="dateEnd">Date de fin de l'offre</label>
+    <input
+      id="dateEnd"
+      type="date"
+      class="form-control"
+      formControlName="dateEnd"
+      [(ngModel)]="offer.dateEnd">
+  </div>
+
+  <div class="row col-4 mx-auto my-3">
+    <button
+      type="submit"
+      class="btn btn-dark btn-lg"
+      [disabled]="form.invalid">
+      {{buttonLabel}}
+    </button>
+  </div>
+
+
+</form>

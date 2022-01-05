@@ -1,1 +1,14 @@
-<p>offer-new works!</p>
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">AJOUTER UNE OFFRE</h1>
+</div>
+
+<div class="row col-6 card shadow mx-auto my-5">
+
+  <h3 class="text-center m-3">NOUVELLE OFFRE</h3>
+
+  <app-offer-form
+    buttonLabel="AJOUTER"
+    (formSubmitted)="addNewOffer($event)"
+  ></app-offer-form>
+
+</div>

@@ -1,15 +1,77 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user.model';
+
+import { Offer } from '../../models/offer.model';
 
 @Component({
   selector: 'app-offer-form',
   templateUrl: './offer-form.component.html',
-  styleUrls: ['./offer-form.component.css']
+  styleUrls: ['./offer-form.component.css'],
 })
 export class OfferFormComponent implements OnInit {
 
-  constructor() { }
+  @Output() formSubmitted: EventEmitter<Offer>;
+  @Input() offerToEdit!: Offer;
+  @Input() buttonLabel!: string;
 
-  ngOnInit(): void {
+
+  offer!: Offer;
+  form!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.formSubmitted = new EventEmitter<Offer>();
   }
 
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  onSubmitOfferForm(): void {
+    if (this.form.valid) {
+      this.formSubmitted.emit(this.offer);
+    }
+  }
+
+  private initForm(): void {
+    if (this.offerToEdit) {
+      this.offer = this.offerToEdit;
+    } else {
+      this.offer = new Offer(
+            '',
+            '',
+            new Date(),
+            new Date(),
+            '',
+            new User('', '', '', '', new Date(), new Date(), ''),
+            new Date(),
+            new Date(),
+            ''
+          );
+        }
+      // Un formulaire est un groupe dans lequel on a des contrôles
+      //Un contrôle équivaut à un champ du formulaire
+      this.form = this.fb.group({
+        name: [
+          null,
+          [
+            Validators.required,
+            Validators.minLength(5),
+            Validators.maxLength(30),
+          ],
+        ],
+        description: [
+          null,
+          [
+            Validators.required,
+            Validators.minLength(10),
+            Validators.maxLength(250),
+          ],
+        ],
+        imgUrl: [null, [Validators.required, Validators.minLength(10)]],
+        dateBegin: [null, [Validators.required]],
+        dateEnd: [null, [Validators.required]],
+      });
+
+  }
 }

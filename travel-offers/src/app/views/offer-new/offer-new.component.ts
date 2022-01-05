@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {OfferService} from '../../services/offer/offer.service';
+import {Offer} from '../../models/offer.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-offer-new',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfferNewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private offerService: OfferService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  addNewOffer(newOffer: Offer): void {
+    this.offerService
+    .save(newOffer)
+    .then(() => {this.router.navigateByUrl('offers')})
+    .catch(err => console.error(err));
   }
 
 }

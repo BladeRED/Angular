@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-errors-form',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorsFormComponent implements OnInit {
 
-  constructor() { }
+  @Input() group?: FormGroup;
+  @Input() controlLabel?: string;
+  @Input() controlName?: string;
+
+  control?: FormControl;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
+    if (this.group && this.controlName) {
+      this.control = this.group.controls[this.controlName] as FormControl;
+    }
+
   }
 
 }
