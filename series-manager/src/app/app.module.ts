@@ -11,7 +11,8 @@ import { SerieEditComponent } from './views/serie-edit/serie-edit.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SerieFormComponent } from './components/serie-form/serie-form.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     ErrorComponent,
     SerieFormComponent,
     HeaderComponent,
-    CommentFormComponent
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
