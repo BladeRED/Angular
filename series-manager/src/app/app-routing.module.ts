@@ -8,20 +8,17 @@ import { SerieEditComponent } from './views/serie-edit/serie-edit.component';
 import { ErrorComponent } from './views/error/error.component';
 
 const routes: Routes = [
-
-{path: '', component: LoginComponent},
-{path: 'series', component: SerieListComponent},
-{path: 'series/new', component: SerieNewComponent},
-{path: 'series/:id', component: SerieDetailsComponent},
-{path: 'series/edit/:id', component: SerieEditComponent},
-{path: 'not-found', component: ErrorComponent},
-{path: '**', redirectTo:'not-found'}
-
-
+  { path: '', component: LoginComponent },
+  { path: 'series', component: SerieListComponent },
+  { path: 'series/new', component: SerieNewComponent },
+  { path: 'series/:id', component: SerieDetailsComponent },
+  { path: 'series/edit/:id', component: SerieEditComponent },
+  { path: 'not-found', component: ErrorComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

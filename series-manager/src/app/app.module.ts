@@ -25,15 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     SerieFormComponent,
     HeaderComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
