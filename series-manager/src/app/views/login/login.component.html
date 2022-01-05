@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="row mt-5">
+
+  <div class="col-6 card shadow mx-auto p-3">
+
+    <h3 class="text-center">Log into our world</h3>
+
+    <div *ngIf="errMsg" class = "alert alert-danger p-3">{{errMsg}}</div>
+
+    <form #authForm="ngForm" (ngSubmit)="onSubmitLogForm()">
+
+      <div class ="mb-3">
+        <label for="user">User</label>
+        <input id="User" class="form-control" placeholder="Your username, please !"
+        name="user"
+        [(ngModel)]="user"
+        required
+        user>
+      </div>
+
+      <div class ="mb-3">
+        <label for="password">Your password, please !</label>
+        <input type="password" id="password" class="form-control" placeholder="Password"
+        name ="password"
+        [(ngModel)]="password"
+        required
+        password>
+
+      </div>
+
+      <div class ="row col-4 mx-auto">
+        <button type="submit" class="btn btn-dark btn-lg"
+        [disabled]="authForm.invalid">
+          ME CONNECTER
+
+        </button>
+
+      </div>
+
+
+
+    </form>
+
+
+  </div>
+
+
+</div>
+
+
+
+
