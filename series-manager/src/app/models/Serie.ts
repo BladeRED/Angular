@@ -1,24 +1,24 @@
 import { Review } from './Review';
 
 export class Serie {
-  private _id: string;
+  private _id: number;
   private _name: string;
-  private _firstSeasonRelease: Date;
+  private _firstSeasonRelease: string | Date;
   private _numberOfSeasons: number;
   private _description: string;
   private _critic: string;
   private _imgUrl: string;
-  private _review: Review;
+  private _review: string | Review;
 
   constructor(
-    id: string,
+    id: number,
     name: string,
-    firstSeasonRelease: Date,
+    firstSeasonRelease: string | Date,
     numberOfSeasons: number,
     description: string,
     critic: string,
     imgUrl: string,
-    review: Review
+    review: string | Review
   ) {
     this._id = id;
     this._name = name;
@@ -34,7 +34,7 @@ export class Serie {
    * Getter id
    * @return {string}
    */
-  public get id(): string {
+  public get id(): number {
     return this._id;
   }
 
@@ -50,7 +50,7 @@ export class Serie {
    * Getter firstSeasonRelease
    * @return {Date}
    */
-  public get firstSeasonRelease(): Date {
+  public get firstSeasonRelease(): string | Date {
     return this._firstSeasonRelease;
   }
 
@@ -90,7 +90,7 @@ export class Serie {
    * Getter review
    * @return {Review}
    */
-  public get review(): Review {
+  public get review(): string | Review {
     return this._review;
   }
 
@@ -98,7 +98,7 @@ export class Serie {
    * Setter id
    * @param {string} value
    */
-  public set id(value: string) {
+  public set id(value: number) {
     this._id = value;
   }
 
@@ -114,7 +114,7 @@ export class Serie {
    * Setter firstSeasonRelease
    * @param {Date} value
    */
-  public set firstSeasonRelease(value: Date) {
+  public set firstSeasonRelease(value: string | Date) {
     this._firstSeasonRelease = value;
   }
 
@@ -154,7 +154,7 @@ export class Serie {
    * Setter review
    * @param {Review} value
    */
-  public set review(value: Review) {
+  public set review(value: string | Review) {
     this._review = value;
   }
 }
