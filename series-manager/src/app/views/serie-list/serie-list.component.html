@@ -4,15 +4,15 @@
       <th scope="col">#ID</th>
       <th scope="col">Name</th>
       <th scope="col">First Season Release</th>
-      <th scope="col">Actions</th>
+      <th scope="col" class ="text-center">Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let serie of seriesList; index as i">
-      <th scope="row" class="table-dark">{{ serie.id }}</th>
+      <th scope="row" class="table-dark ">{{ serie.id }}</th>
       <td class="table-dark">{{ serie.name }}</td>
       <td class ="table-dark">{{ serie.firstSeasonRelease }}</td>
-      <td class ="table-dark">
+      <td class ="table-dark d-flex justify-content-center">
       <button
         [routerLink]="['/series', serie.id]"
         class="btn btn-outline-light mx-2"
