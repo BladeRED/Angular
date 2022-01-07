@@ -1,35 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Serie } from '../../models/Serie';
+import { Review } from '../../models/Review';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SerieService {
   seriesList: Serie[];
-  datalist = [{id: 1, name: 'The Witcher', firstSeasonRelease: '20/12/2019'}, {}, {}, {}, {}, {}, {}]
-  ;
+  datalist! : Review[];
 
   constructor() {
     this.seriesList = [];
 
-    for (let i = 0; i < 5; i++) {
       this.seriesList.push(
-        new Serie(  i,
+        new Serie(  1,
           'The Witcher',
           '20/12/2019',
           2,
           'Le sorceleur Geralt, un chasseur de monstres mutant, se bat pour trouver sa place dans un monde où les humains se révèlent souvent plus vicieux que les bêtes.',
           "Il est difficile d'entrer dans The Witcher, entre les noms fantaisistes étranges, la structure de l'histoire hasardeuse et une trame de fond compliquée. C'est beaucoup à avaler d'un coup. Mais on finit par se laisser avoir et par vouloir en savoir plus sur la suite. Si vous avez envie de vous laisser séduire, n'hésitez pas.",
           'https://fr.web.img6.acsta.net/pictures/19/12/12/12/13/2421997.jpg',
-          "Pas lecteur, mais joueur, je retrouve ici mes personnages adorés que j'ai parfois du mal à reconnaître tant l'image des jeux est parfois un peu loin du physique des acteurs live, mais bon, une fois passé ce petit 'problème', on prend plaisir à arpenter les contrées avec le sorceleur.",),
-          new Serie(  i,
+          this.datalist,),
+          new Serie(  2,
             'Couille Académie',
             '16/10/2020',
             2,
             'Le sorceleur Geralt, un chasseur de monstres mutant, se bat pour trouver sa place dans un monde où les humains se révèlent souvent plus vicieux que les bêtes.',
             "Il est difficile d'entrer dans The Witcher, entre les noms fantaisistes étranges, la structure de l'histoire hasardeuse et une trame de fond compliquée. C'est beaucoup à avaler d'un coup. Mais on finit par se laisser avoir et par vouloir en savoir plus sur la suite. Si vous avez envie de vous laisser séduire, n'hésitez pas.",
             'https://fr.web.img6.acsta.net/pictures/19/12/12/12/13/2421997.jpg',
-            "Pas lecteur, mais joueur, je retrouve ici mes personnages adorés que j'ai parfois du mal à reconnaître tant l'image des jeux est parfois un peu loin du physique des acteurs live, mais bon, une fois passé ce petit 'problème', on prend plaisir à arpenter les contrées avec le sorceleur.",)
+            this.datalist,)
         /*
         new Serie(
           i,
@@ -43,7 +42,6 @@ export class SerieService {
         )
         */
       );
-    }
   }
 
   // Functions used for Create, Edit and Delete Series //

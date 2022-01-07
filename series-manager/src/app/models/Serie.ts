@@ -8,7 +8,7 @@ export class Serie {
   private _description: string;
   private _critic: string;
   private _imgUrl: string;
-  private _review: string | Review;
+  private _review: Review[];
 
   constructor(
     id: number,
@@ -18,7 +18,7 @@ export class Serie {
     description: string,
     critic: string,
     imgUrl: string,
-    review: string | Review
+    review: Review[]
   ) {
     this._id = id;
     this._name = name;
@@ -90,7 +90,7 @@ export class Serie {
    * Getter review
    * @return {Review}
    */
-  public get review(): string | Review {
+  public get review(): Review[] {
     return this._review;
   }
 
@@ -154,7 +154,7 @@ export class Serie {
    * Setter review
    * @param {Review} value
    */
-  public set review(value: string | Review) {
+  public set review(value: Review[]) {
     this._review = value;
   }
 }
