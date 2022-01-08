@@ -21,6 +21,7 @@ export class SerieDetailsComponent implements OnInit {
     this.serieService.findSerieById(+id).then((serie: Serie) => {
 
       this.serie = serie;
+      console.log(serie);
     })
   }
 

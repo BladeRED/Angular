@@ -1,1 +1,16 @@
-<p>serie-edit works!</p>
+<!-- edit serie html -->
+<div *ngIf="serie" class="row col-6 card shadow mx-auto">
+  <div class="card-body text-center">
+    <h5 class="card-title">Editer un Livre</h5>
+
+    <app-serie-form
+      [serieToEdit]="serie"
+      buttonLabel="Editer"
+      (formSubmitted)="onSubmitEditSerie($event)"
+      >Editer</app-serie-form
+    >
+
+    <button routerLink="/series" class="btn btn-dark mt-2">RETOUR</button>
+  </div>
+</div>
+

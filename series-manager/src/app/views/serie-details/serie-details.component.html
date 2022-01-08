@@ -3,6 +3,8 @@
     <h5 class="card-title">{{serie.name}} - {{serie.numberOfSeasons}} saisons</h5>
     <img src="{{serie.imgUrl}}" class="card-img-top">
     <h6 class ="my-2">{{serie.description}}</h6>
+    <h5>Commentaires</h5>
+    <h6 class ="my-2">{{serie.review.id}}{{serie.review.date}}{{serie.review.author}}{{serie.review.content}}</h6>
     <button routerLink="/series" class="btn btn-dark mt-2">RETOUR</button>
   </div>
 </div>
