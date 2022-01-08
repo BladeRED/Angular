@@ -1,10 +1,10 @@
 export class Review {
-  private _id: string;
+  private _id: number;
   private _date: Date;
   private _author: string;
   private _content: string;
 
-  constructor(id: string, date: Date, author: string, content: string) {
+  constructor(id: number, date: Date, author: string, content: string) {
     this._id = id;
     this._date = date;
     this._author = author;
@@ -13,9 +13,9 @@ export class Review {
 
   /**
    * Getter id
-   * @return {string}
+   * @return {number}
    */
-  public get id(): string {
+  public get id(): number {
     return this._id;
   }
 
@@ -45,9 +45,9 @@ export class Review {
 
   /**
    * Setter id
-   * @param {string} value
+   * @param {number} value
    */
-  public set id(value: string) {
+  public set id(value: number) {
     this._id = value;
   }
 
