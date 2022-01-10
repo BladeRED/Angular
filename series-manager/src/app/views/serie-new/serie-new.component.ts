@@ -6,22 +6,16 @@ import { Serie } from '../../models/Serie';
 @Component({
   selector: 'app-serie-new',
   templateUrl: './serie-new.component.html',
-  styleUrls: ['./serie-new.component.css']
+  styleUrls: ['./serie-new.component.css'],
 })
 export class SerieNewComponent implements OnInit {
+  constructor(private serieService: SerieService, private router: Router) {}
 
-  constructor(private serieService: SerieService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmitCreateSerie(serieToAdd: Serie): void {
-
-
-this.serieService.createSerie(serieToAdd).then(() => {this.router.navigateByUrl('/series')})
-
-
+    this.serieService.createSerie(serieToAdd).then(() => {
+      this.router.navigateByUrl('/series');
+    });
   }
-
-
 }

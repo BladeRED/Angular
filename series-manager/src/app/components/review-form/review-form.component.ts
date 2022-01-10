@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SerieService } from 'src/app/services/serie/serie.service';
 import { Review } from '../../models/Review';
 
@@ -13,42 +14,50 @@ export class ReviewFormComponent implements OnInit {
   @Input() buttonLabel!: string;
 
   form!: FormGroup;
-  reviewList!: Review[];
   review!: Review;
 
-  constructor(private fb: FormBuilder, private serieService: SerieService) {
+  constructor(
+    private fb: FormBuilder,
+    private serieService: SerieService,
+    private route: ActivatedRoute
+  ) {
     this.formSubmitted = new EventEmitter<Review>();
   }
 
   ngOnInit(): void {
-
     this.initForm();
-    console.log(this.review);
   }
 
   onSubmitReviewForm(): void {
+
     this.formSubmitted.emit(this.review);
+  }
+
+  onChangeDateReview(dateString: string) {
+    this.review.date = new Date(Date.parse(dateString));
   }
 
   private initForm(): void {
     this.review = new Review(0, new Date(), '', '');
 
-    // Un formulaire est un groupe dans lequel on a des contrôles
-    //Un contrôle équivaut à un champ du formulaire
+    // The validators required for submit the review form. If you don't meet the requirements of the validators, the button will be disabled. Each validators controls an input of the form to see if you are ok with.//
     this.form = this.fb.group({
-      date: [null, [Validators.required]],
-      author: [
+
+      pseudo: [
         null,
-        Validators.minLength(5),
-        Validators.maxLength(20),
-        [Validators.required],
+
+        [
+          Validators.minLength(5),
+          Validators.maxLength(20),
+          Validators.required,
+        ],
       ],
       content: [
         null,
         [
-          Validators.required,
           Validators.minLength(10),
           Validators.maxLength(300),
+          Validators.required,
         ],
       ],
       available: [null],

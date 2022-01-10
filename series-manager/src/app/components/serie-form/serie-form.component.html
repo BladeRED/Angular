@@ -9,18 +9,19 @@
     [(ngModel)]="serie.name">
   </div>
 
-
   <div class="form-group">
     <label for="firstSeasonRelease">Date de la première saison</label>
-    <textarea
-    id ="firstSeasonRelease"
-    class="form-control"
-    formControlName= "firstSeasonRelease"
-    [(ngModel)]="serie.firstSeasonRelease"></textarea>
+    <input
+      id="firstSeasonRelease"
+      type="date"
+      class="form-control"
+      formControlName="firstSeasonRelease"
+      (ngModelChange)="onChangeDate($event)"
+      [ngModel]="serie.firstSeasonRelease | date:'dd-MM-yyyy'">
   </div>
 
   <div class="form-group">
-    <label for="firstSeasonRelease">Nombres de saisons</label>
+    <label for="numberOfSeason">Nombres de saisons</label>
     <textarea
     id ="numberOfSeasons"
     class="form-control"

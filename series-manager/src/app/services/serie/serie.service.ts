@@ -8,45 +8,12 @@ import { Review } from '../../models/Review';
 export class SerieService {
   seriesList: Serie[];
   dataList!: Review[];
+  review!: Review;
 
   constructor() {
     this.seriesList = [];
-    this.dataList = [];
 
-    // We create and push in two tables the comment and the series. We just take the indew of the comment table for adding it to the series table //
-
-    this.dataList.push(
-      new Review(
-        1,
-        new Date('28-12-2021'),
-        'GerardDeBrives',
-        "Je préfère Henry Cavill en Sorceleur plutôt qu'en héros à collant!"
-      ),
-      new Review(
-        2,
-        new Date('15-05-2013'),
-        'TotoDu38',
-        "Sombre, violent, et trash, la série se perd dans l'histoire et les fesses des courtisanes au fil des saisons. Tant mieux ou dommage selon le point de vue de chacun."
-      ),
-      new Review(
-        3,
-        new Date('30-08-2017'),
-        'BouffiContreLesTapirs',
-        'Moi qui ai joué aux divers jeux de la licence, je ne suis pas déçu. Animation sublime, histoire superbe, je recommande !'
-      ),
-      new Review(
-        4,
-        new Date('05-06-2019'),
-        'Brie-Tiche',
-        'Une mini-série très sympa à regarder avec une tasse de thé Lipton goût pêche'
-      ),
-      new Review(
-        5,
-        new Date('25-11-2018'),
-        'Jean-Neige',
-        'Tout simplement la meilleur série de ces 10 dernières années, même si certains ne vont pas aimer la fin.'
-      )
-    );
+    // We create and push in the table the comment and the series. The comment table is a variable in the serie model //
 
     this.seriesList.push(
       new Serie(
@@ -57,7 +24,20 @@ export class SerieService {
         'Le sorceleur Geralt, un chasseur de monstres mutant, se bat pour trouver sa place dans un monde où les humains se révèlent souvent plus vicieux que les bêtes.',
         "Il est difficile d'entrer dans The Witcher, entre les noms fantaisistes étranges, la structure de l'histoire hasardeuse et une trame de fond compliquée. C'est beaucoup à avaler d'un coup. Mais on finit par se laisser avoir et par vouloir en savoir plus sur la suite. Si vous avez envie de vous laisser séduire, n'hésitez pas.",
         'https://fr.web.img6.acsta.net/pictures/19/12/12/12/13/2421997.jpg',
-        this.dataList[0]
+        [
+          new Review(
+            0,
+            new Date('2021-12-23'),
+            'GerardDeBrives',
+            "Je préfère Henry Cavill en Sorceleur plutôt qu'en héros à collant!"
+          ),
+          new Review(
+            1,
+            new Date('2021-12-28'),
+            'JennyferDeBergues',
+            "L'univers est sympa. Mais j'aurais aimé moins de violences."
+          ),
+        ]
       ),
       new Serie(
         2,
@@ -67,7 +47,14 @@ export class SerieService {
         "L'histoire de l'une des familles les plus puissantes de la Renaissance qui s'est faite connaître grâce à l'un de ses membres, Rodrigo Borgia, et son accession au trône de Saint-Pierre.",
         "Malgré de jolis décors, de jolis costumes et de bonnes idées scénaristiques, Borgia est une mauvaise série qui sombre trop souvent de manière gratuite dans l'hystérie et l’obscénité.",
         'https://fr.web.img6.acsta.net/c_310_420/medias/nmedia/18/85/20/48/19777015.jpg',
-        this.dataList[1]
+        [
+          new Review(
+            0,
+            new Date('15-05-2013'),
+            'TotoDu38',
+            "Sombre, violent, et trash, la série se perd dans l'histoire et les fesses des courtisanes au fil des saisons. Tant mieux ou dommage selon le point de vue de chacun."
+          ),
+        ]
       ),
       new Serie(
         3,
@@ -77,7 +64,14 @@ export class SerieService {
         "Lorsque sa femme se fait brûler vive, accusée à tort de sorcellerie, le vampire Vlad Dracula Tepes déclare qu'il prendra sa revanche sur le peuple de Wallachia. Aidé du magicien Sypha Belnades et du propre fils de Dracula, Alucard, le chasseur de démons Trevor Belmont lutte contre la terreur qu'il instaure.",
         "Dommage de ne voir que des vieux commentaires qui se sont arrêtés à la 1ere saison, qui recherche le jeux vidéo dans la série ou qui s'attachent qui détails technico technique de la réalisation. Pour ma part, je considère cette série comme un chef d'oeuvre.",
         'https://fr.web.img2.acsta.net/pictures/17/06/05/13/22/514027.jpg',
-        this.dataList[2]
+        [
+          new Review(
+            0,
+            new Date('30-08-2017'),
+            'BouffiContreLesTapirs',
+            'Moi qui ai joué aux divers jeux de la licence, je ne suis pas déçu. Animation sublime, histoire superbe, je recommande !'
+          ),
+        ]
       ),
       new Serie(
         4,
@@ -87,7 +81,14 @@ export class SerieService {
         'Un duo improbable, un Ange exigeant et un Démon qui vit en liberté, ont pris goût à la vie sur Terre et sont obligés de former une alliance pour arrêter Armageddon.',
         "Franchement j'ai adoré et j'ai passé un très bon moment en regardant cette mini-série. C'est drôle; loufoque et absurde sans être lourd et sans queue ni tête ... ce qui est extrêmement rare.",
         'https://fr.web.img4.acsta.net/pictures/19/02/18/12/38/0080674.jpg',
-        this.dataList[3]
+        [
+          new Review(
+            0,
+            new Date('05-06-2019'),
+            'Brie-Tiche',
+            'Une mini-série très sympa à regarder avec une tasse de thé Lipton goût pêche'
+          ),
+        ]
       ),
       new Serie(
         5,
@@ -97,7 +98,14 @@ export class SerieService {
         'A Westeros, un continent chimérique, de puissantes familles se disputent le trône de fer, symbole de pouvoir absolu sur le royaume des Sept Couronnes.',
         "Au fil des années, 'Game of thrones' se sera imposé comme un monument grâce à un art extrêmement habile du rebondissement, bousculant un genre très codé. Une série donnant plus de place à son intrigue et ses personnages qu’à son univers fantaisiste, elle parvient pourtant au fil des saisons à assurer un spectacle grandiose pour la télévision.",
         'https://m.media-amazon.com/images/I/91DjGXn7jXL._AC_SL1500_.jpg',
-        this.dataList[4]
+        [
+          new Review(
+            0,
+            new Date('25-11-2018'),
+            'Jean-Neige',
+            'Tout simplement la meilleur série de ces 10 dernières années, même si certains ne vont pas aimer la fin.'
+          ),
+        ]
       )
     );
   }
@@ -149,11 +157,20 @@ export class SerieService {
 
   // Creation of review ///
 
-  createReview(reviewToCreate: Review): Promise<void> {
+  createReview(reviewToCreate: Review, SerieToUpdate: Serie): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      reviewToCreate.id = this.dataList[this.dataList.length - 1].id + 1;
-      this.dataList.push(reviewToCreate);
-      resolve();
+      for (let [index, review] of this.seriesList.entries()) {
+        if (review.id === SerieToUpdate.id) {
+          this.seriesList[index] = review;
+          this.dataList = review.review
+          reviewToCreate.id = this.dataList[this.dataList.length - 1].id + 1;
+          this.seriesList[index].review.push(
+            reviewToCreate
+          );
+          resolve();
+          break;
+        }
+      }
     });
   }
 
