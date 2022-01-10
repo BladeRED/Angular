@@ -1,13 +1,13 @@
 export class Review {
   private _id: number;
   private _date: Date;
-  private _author: string;
+  private _pseudo: string;
   private _content: string;
 
-  constructor(id: number, date: Date, author: string, content: string) {
+  constructor(id: number, date: Date, pseudo: string, content: string) {
     this._id = id;
     this._date = date;
-    this._author = author;
+    this._pseudo = pseudo;
     this._content = content;
   }
 
@@ -28,11 +28,11 @@ export class Review {
   }
 
   /**
-   * Getter author
+   * Getter pseudo
    * @return {string}
    */
-  public get author(): string {
-    return this._author;
+  public get pseudo(): string {
+    return this._pseudo;
   }
 
   /**
@@ -60,11 +60,11 @@ export class Review {
   }
 
   /**
-   * Setter author
+   * Setter pseudo
    * @param {string} value
    */
-  public set author(value: string) {
-    this._author = value;
+  public set pseudo(value: string) {
+    this._pseudo = value;
   }
 
   /**

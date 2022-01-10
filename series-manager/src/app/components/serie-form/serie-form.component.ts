@@ -10,10 +10,9 @@ import { Review } from '../../models/Review';
   styleUrls: ['./serie-form.component.css'],
 })
 export class SerieFormComponent implements OnInit {
-
-  @Output() formSubmitted : EventEmitter<Serie>;
+  @Output() formSubmitted: EventEmitter<Serie>;
   @Input() buttonLabel!: string;
-  @Input()serieToEdit!: Serie;
+  @Input() serieToEdit!: Serie;
 
   form!: FormGroup;
 
@@ -32,7 +31,18 @@ export class SerieFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.serie = this.serieToEdit ? this.serieToEdit :new Serie(0, '', new Date(), 0,'','','', new Review(0, new Date(),'',''));
+    this.serie = this.serieToEdit
+      ? this.serieToEdit
+      : new Serie(
+          0,
+          '',
+          new Date(),
+          0,
+          '',
+          '',
+          '',
+          new Review(0, new Date(), '', '')
+        );
 
     // Un formulaire est un groupe dans lequel on a des contrôles
     //Un contrôle équivaut à un champ du formulaire
@@ -45,24 +55,14 @@ export class SerieFormComponent implements OnInit {
           Validators.maxLength(30),
         ],
       ],
-      firstSeasonRelease: [
-        null,
-        [
-          Validators.required,
-        ],
-      ],
-      numberOfSeasons: [
-        null,
-        [
-          Validators.required,
-        ],
-      ],
+      firstSeasonRelease: [null, [Validators.required]],
+      numberOfSeasons: [null, [Validators.required]],
       description: [
         null,
         [
           Validators.required,
           Validators.minLength(10),
-          Validators.maxLength(250),
+          Validators.maxLength(999),
         ],
       ],
       critic: [
@@ -70,7 +70,7 @@ export class SerieFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(5),
-          Validators.maxLength(250),
+          Validators.maxLength(999),
         ],
       ],
       imgUrl: [

@@ -9,10 +9,9 @@ import { Book } from '../../models/Book';
   styleUrls: ['./book-form.component.css'],
 })
 export class BookFormComponent implements OnInit {
-
-  @Output() formSubmitted : EventEmitter<Book>;
+  @Output() formSubmitted: EventEmitter<Book>;
   @Input() buttonLabel!: string;
-  @Input()bookToEdit!: Book;
+  @Input() bookToEdit!: Book;
 
   form!: FormGroup;
 
@@ -31,7 +30,9 @@ export class BookFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.book = this.bookToEdit ? this.bookToEdit :new Book(0, '', '', '', false);
+    this.book = this.bookToEdit
+      ? this.bookToEdit
+      : new Book(0, '', '', '', false);
 
     // Un formulaire est un groupe dans lequel on a des contrôles
     //Un contrôle équivaut à un champ du formulaire

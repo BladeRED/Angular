@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SerieService } from 'src/app/services/serie/serie.service';
+import { Serie } from '../../models/Serie';
 
 @Component({
   selector: 'app-serie-new',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SerieNewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serieService: SerieService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  onSubmitCreateSerie(serieToAdd: Serie): void {
+
+
+this.serieService.createSerie(serieToAdd).then(() => {this.router.navigateByUrl('/series')})
+
+
+  }
+
 
 }

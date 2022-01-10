@@ -1,11 +1,29 @@
 <div class="row col-6 card shadow mx-auto">
   <div class="card-body text-center">
     <h5 class="card-title">{{serie.name}} - {{serie.numberOfSeasons}} saisons</h5>
+    <h6 class="card-title text-center"> Première saison paru le :{{serie.firstSeasonRelease}}</h6>
     <img src="{{serie.imgUrl}}" class="card-img-top">
     <h6 class ="my-2">{{serie.description}}</h6>
+    <h5 class="card-title">La presse en parle !</h5>
+    <h6 class ="my-2">{{serie.critic}}</h6>
     <h5>Commentaires</h5>
-    <h6 class ="my-2">{{serie.review.id}}{{serie.review.date}}{{serie.review.author}}{{serie.review.content}}</h6>
+    <h6 class ="my-2">{{serie.review.id}}{{serie.review.date}}{{serie.review.pseudo}}{{serie.review.content}}</h6>
     <button routerLink="/series" class="btn btn-dark mt-2">RETOUR</button>
   </div>
+
+  <div class="row col-6 card shadow mx-auto">
+
+    <div class="card-body text-center">
+
+      <h5 class="card-title">Ajouter un commentaire</h5>
+
+      <app-review-form
+      buttonLabel="Ajouter"
+      (formSubmitted)="onSubmitCreateReview($event)"></app-review-form>
+
+    </div>
+
+  </div>
+
 </div>
 
