@@ -31,22 +31,17 @@ export class SerieFormComponent implements OnInit {
   }
 
   onChangeDate(dateString: string) {
+    console.log(dateString);
     this.serie.firstSeasonRelease = new Date(Date.parse(dateString));
+
   }
 
   private initForm(): void {
     this.serie = this.serieToEdit
       ? this.serieToEdit
-      : new Serie(
-          0,
-          '',
-          new Date(),
-          0,
-          '',
-          '',
-          '',
-          [new Review(0, new Date(), '', '')]
-        );
+      : new Serie(0, '', new Date(), 0, '', '', '', [
+          new Review(0, new Date(), '', ''),
+        ]);
 
     // The validators required for submit the serie form. If you don't meet the requirements of the validators, the button will be disabled. Each validators controls an input of the form to see if you are ok with. //
     this.form = this.fb.group({

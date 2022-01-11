@@ -6,13 +6,26 @@ import { SerieNewComponent } from './views/serie-new/serie-new.component';
 import { SerieDetailsComponent } from './views/serie-details/serie-details.component';
 import { SerieEditComponent } from './views/serie-edit/serie-edit.component';
 import { ErrorComponent } from './views/error/error.component';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'series', component: SerieListComponent },
-  { path: 'series/new', component: SerieNewComponent },
-  { path: 'series/:id', component: SerieDetailsComponent },
-  { path: 'series/edit/:id', component: SerieEditComponent },
+  { path: 'series', canActivate: [AuthGuard], component: SerieListComponent },
+  {
+    path: 'series/new',
+    canActivate: [AuthGuard],
+    component: SerieNewComponent,
+  },
+  {
+    path: 'series/:id',
+    canActivate: [AuthGuard],
+    component: SerieDetailsComponent,
+  },
+  {
+    path: 'series/edit/:id',
+    canActivate: [AuthGuard],
+    component: SerieEditComponent,
+  },
   { path: 'not-found', component: ErrorComponent },
   { path: '**', redirectTo: 'not-found' },
 ];

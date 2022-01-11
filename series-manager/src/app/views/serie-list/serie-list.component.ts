@@ -14,6 +14,7 @@ export class SerieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.seriesList = this.serieService.seriesList;
+    console.log(this.seriesList);
   }
 
   onClickDeleteSerie(arrayIndex: number): void {

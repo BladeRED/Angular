@@ -22,7 +22,10 @@ export class Serie {
   ) {
     this._id = id;
     this._name = name;
-    this._firstSeasonRelease = firstSeasonRelease;
+    this._firstSeasonRelease =
+      typeof firstSeasonRelease === 'string'
+        ? new Date(firstSeasonRelease)
+        : firstSeasonRelease;
     this._numberOfSeasons = numberOfSeasons;
     this._description = description;
     this._critic = critic;

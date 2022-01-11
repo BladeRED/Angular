@@ -19,7 +19,7 @@ export class SerieService {
       new Serie(
         1,
         'The Witcher',
-        '20/12/2019',
+        new Date('2019-12-20'),
         2,
         'Le sorceleur Geralt, un chasseur de monstres mutant, se bat pour trouver sa place dans un monde où les humains se révèlent souvent plus vicieux que les bêtes.',
         "Il est difficile d'entrer dans The Witcher, entre les noms fantaisistes étranges, la structure de l'histoire hasardeuse et une trame de fond compliquée. C'est beaucoup à avaler d'un coup. Mais on finit par se laisser avoir et par vouloir en savoir plus sur la suite. Si vous avez envie de vous laisser séduire, n'hésitez pas.",
@@ -42,7 +42,7 @@ export class SerieService {
       new Serie(
         2,
         'Borgia',
-        '01/01/2011',
+        new Date('2011-01-01'),
         3,
         "L'histoire de l'une des familles les plus puissantes de la Renaissance qui s'est faite connaître grâce à l'un de ses membres, Rodrigo Borgia, et son accession au trône de Saint-Pierre.",
         "Malgré de jolis décors, de jolis costumes et de bonnes idées scénaristiques, Borgia est une mauvaise série qui sombre trop souvent de manière gratuite dans l'hystérie et l’obscénité.",
@@ -50,7 +50,7 @@ export class SerieService {
         [
           new Review(
             0,
-            new Date('15-05-2013'),
+            new Date('2013-05-15'),
             'TotoDu38',
             "Sombre, violent, et trash, la série se perd dans l'histoire et les fesses des courtisanes au fil des saisons. Tant mieux ou dommage selon le point de vue de chacun."
           ),
@@ -59,7 +59,7 @@ export class SerieService {
       new Serie(
         3,
         'Castlevania',
-        '07/07/2017',
+        new Date('2017-07-07'),
         4,
         "Lorsque sa femme se fait brûler vive, accusée à tort de sorcellerie, le vampire Vlad Dracula Tepes déclare qu'il prendra sa revanche sur le peuple de Wallachia. Aidé du magicien Sypha Belnades et du propre fils de Dracula, Alucard, le chasseur de démons Trevor Belmont lutte contre la terreur qu'il instaure.",
         "Dommage de ne voir que des vieux commentaires qui se sont arrêtés à la 1ere saison, qui recherche le jeux vidéo dans la série ou qui s'attachent qui détails technico technique de la réalisation. Pour ma part, je considère cette série comme un chef d'oeuvre.",
@@ -67,7 +67,7 @@ export class SerieService {
         [
           new Review(
             0,
-            new Date('30-08-2017'),
+            new Date('2017-08-30'),
             'BouffiContreLesTapirs',
             'Moi qui ai joué aux divers jeux de la licence, je ne suis pas déçu. Animation sublime, histoire superbe, je recommande !'
           ),
@@ -76,7 +76,7 @@ export class SerieService {
       new Serie(
         4,
         'Good Omens',
-        '31/05/2019',
+        new Date('2019-05-31'),
         1,
         'Un duo improbable, un Ange exigeant et un Démon qui vit en liberté, ont pris goût à la vie sur Terre et sont obligés de former une alliance pour arrêter Armageddon.',
         "Franchement j'ai adoré et j'ai passé un très bon moment en regardant cette mini-série. C'est drôle; loufoque et absurde sans être lourd et sans queue ni tête ... ce qui est extrêmement rare.",
@@ -84,7 +84,7 @@ export class SerieService {
         [
           new Review(
             0,
-            new Date('05-06-2019'),
+            new Date('2019-06-05'),
             'Brie-Tiche',
             'Une mini-série très sympa à regarder avec une tasse de thé Lipton goût pêche'
           ),
@@ -93,7 +93,7 @@ export class SerieService {
       new Serie(
         5,
         'Game of Thrones',
-        '16/10/2020',
+        new Date('2020-10-16'),
         8,
         'A Westeros, un continent chimérique, de puissantes familles se disputent le trône de fer, symbole de pouvoir absolu sur le royaume des Sept Couronnes.',
         "Au fil des années, 'Game of thrones' se sera imposé comme un monument grâce à un art extrêmement habile du rebondissement, bousculant un genre très codé. Une série donnant plus de place à son intrigue et ses personnages qu’à son univers fantaisiste, elle parvient pourtant au fil des saisons à assurer un spectacle grandiose pour la télévision.",
@@ -101,7 +101,7 @@ export class SerieService {
         [
           new Review(
             0,
-            new Date('25-11-2018'),
+            new Date('2018-11-25'),
             'Jean-Neige',
             'Tout simplement la meilleur série de ces 10 dernières années, même si certains ne vont pas aimer la fin.'
           ),
@@ -162,23 +162,10 @@ export class SerieService {
       for (let [index, review] of this.seriesList.entries()) {
         if (review.id === SerieToUpdate.id) {
           this.seriesList[index] = review;
-          this.dataList = review.review
+          this.dataList = review.review;
           reviewToCreate.id = this.dataList[this.dataList.length - 1].id + 1;
-          this.seriesList[index].review.push(
-            reviewToCreate
-          );
+          this.seriesList[index].review.push(reviewToCreate);
           resolve();
-          break;
-        }
-      }
-    });
-  }
-
-  findReviewById(reviewId: number): Promise<Review> {
-    return new Promise<Review>((res, rej) => {
-      for (let review of this.dataList) {
-        if (review.id === reviewId) {
-          res(review);
           break;
         }
       }

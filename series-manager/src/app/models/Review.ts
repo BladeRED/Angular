@@ -1,12 +1,17 @@
 export class Review {
   private _id: number;
-  private _date: Date;
+  private _date: string | Date;
   private _pseudo: string;
   private _content: string;
 
-  constructor(id: number, date: Date, pseudo: string, content: string) {
+  constructor(
+    id: number,
+    date: string | Date,
+    pseudo: string,
+    content: string
+  ) {
     this._id = id;
-    this._date = date;
+    this._date = typeof date === 'string' ? new Date(date) : date;
     this._pseudo = pseudo;
     this._content = content;
   }
@@ -23,7 +28,7 @@ export class Review {
    * Getter date
    * @return {Date}
    */
-  public get date(): Date {
+  public get date(): string | Date {
     return this._date;
   }
 
@@ -55,7 +60,7 @@ export class Review {
    * Setter date
    * @param {Date} value
    */
-  public set date(value: Date) {
+  public set date(value: string | Date) {
     this._date = value;
   }
 
