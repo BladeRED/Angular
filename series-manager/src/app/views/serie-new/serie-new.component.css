@@ -24,7 +24,9 @@ h5 {
 }
 
 tr,
-button,label,input {
+button,
+label,
+input {
   font-family: "Oswald", "Helvetica Neue", sans-serif;
   font-size: 18px;
 }

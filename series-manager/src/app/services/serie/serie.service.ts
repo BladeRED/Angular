@@ -144,6 +144,8 @@ export class SerieService {
     });
   }
 
+  // Function used for find the ID of a serie. It is used for the edit serie function //
+
   findSerieById(serieId: number): Promise<Serie> {
     return new Promise<Serie>((res, rej) => {
       for (let serie of this.seriesList) {

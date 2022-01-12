@@ -13,6 +13,8 @@ export class SerieListComponent implements OnInit {
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
+
+    // We connect the seriesList variable we had here with the serieService.seriesList we had on the serieService who has the datas of the series //
     this.seriesList = this.serieService.seriesList;
     console.log(this.seriesList);
   }

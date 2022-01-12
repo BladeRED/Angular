@@ -28,6 +28,10 @@ export class SerieDetailsComponent implements OnInit {
     });
   }
 
+  // Because the review form is on the serie-details html, we need the function to add a review to be there//
+  // We call the function to create review in the serieService, and go back to the serie list once it's done //
+  // That's because if we stay on the serie-details view, the comment will be add but if we want to add another one, the previous one will be edited. So we need to quit the view to avoid that //
+
   onSubmitCreateReview(reviewToAdd: Review): void {
     this.serieService.createReview(reviewToAdd, this.serie).then(() => {
       this.router.navigateByUrl('/series');

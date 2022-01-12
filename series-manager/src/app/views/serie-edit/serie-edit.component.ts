@@ -18,6 +18,8 @@ export class SerieEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    // We snapshot with the params id to have the correct ID of the serie we want to edit //
     const id = this.route.snapshot.params['id'];
 
     this.serieService.findSerieById(+id).then((serie: Serie) => {

@@ -12,6 +12,7 @@ export class LoginService {
 
   signin(user: string, password: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
+      // if you enter the correct user and password, you will have the token of connexion, else you will have the reject msg //
       if (user === 'Administrateur' && password === 'azerty') {
         this.token.next('TuEsUnSorcierHarryDu42!');
         resolve();

@@ -14,6 +14,8 @@ export class SerieNewComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmitCreateSerie(serieToAdd: Serie): void {
+
+    // We call the create serie function on the serieService who had the promise. Once it's done, then we go back to the /series view //
     this.serieService.createSerie(serieToAdd).then(() => {
       this.router.navigateByUrl('/series');
     });

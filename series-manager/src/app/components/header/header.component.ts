@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
+    // We subscribe to the login token in login service for change the value of isConnected. The header will add the logout button only if the isConnected is true //
     this.tokenSub = this.loginService.token.subscribe(
       (newTokenValue: string) => {
         this.isConnected = !!newTokenValue;

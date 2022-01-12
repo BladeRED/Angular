@@ -18,7 +18,7 @@ export class Serie {
     description: string,
     critic: string,
     imgUrl: string,
-    review: Review[]
+    review: Review[] // this variable is a table because we will need to push the datas of the Review model in it //
   ) {
     this._id = id;
     this._name = name;
